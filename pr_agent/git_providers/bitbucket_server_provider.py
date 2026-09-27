@@ -182,7 +182,7 @@ class BitbucketServerProvider(GitProvider):
         relevant_lines_start = suggestion["relevant_lines_start"]
         relevant_lines_end = suggestion["relevant_lines_end"]
         if relevant_lines_end > relevant_lines_start:
-            # Bitbucket does not support multi-line suggestions, so use a code block instead.
+            # Render multi-line suggestions as a code block because Bitbucket does not support them.
             # See https://jira.atlassian.com/browse/BSERV-4553.
             body = body.replace("```suggestion", "```")
             return {
